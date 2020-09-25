@@ -57,7 +57,8 @@ const Quote: React.FC = () => {
 						title="tweet this code"
 						href={`https://twitter.com/intent/tweet?text=${text.current}`}
 						target="_blank"
-						rel="noopener noreferrer">
+						rel="noopener noreferrer"
+						className="Tweet-Button">
 						Tweet
 					</a>
 				</Button>

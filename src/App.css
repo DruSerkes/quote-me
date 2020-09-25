@@ -28,3 +28,8 @@ html {
 	display: flex;
 	justify-content: flex-end;
 }
+
+.Tweet-Button {
+	color: white;
+	text-decoration: none;
+}
