@@ -4,12 +4,9 @@ const Footer = () => {
 	return (
 		<footer className="Footer">
 			<p>
-				{' '}
-				Built by{' '}
 				<a href="https://github.com/druserkes" target="_blank" rel="noopener noreferrer">
-					Dru Serkes
+					Dru Serkes &copy;2020
 				</a>
-				&copy; 2020
 			</p>
 		</footer>
 	);
