@@ -36,7 +36,9 @@ const Quote: React.FC = () => {
 		setLoading(true);
 	};
 
-	if (loading) return <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
+	if (loading) {
+		return <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
+	}
 
 	return (
 		<main className="Quote">
