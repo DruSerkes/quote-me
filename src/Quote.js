@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 const Quote = () => {
 	const [ quote, setQuote ] = useState(null);
@@ -16,7 +18,7 @@ const Quote = () => {
 					console.log(e);
 					setQuote(null);
 				} finally {
-					setLoading(false);
+					setTimeout(() => setLoading(false), 500);
 				}
 			};
 			if (!quote) getQuote();
@@ -29,7 +31,14 @@ const Quote = () => {
 		setLoading(true);
 	};
 
-	if (loading) return <h3>Loading - add a spinner here</h3>;
+	if (loading) {
+		return (
+			<h3>
+				Loading
+				<Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
+			</h3>
+		);
+	}
 
 	return (
 		<main className="Quote">
