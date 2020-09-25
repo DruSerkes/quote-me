@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import {Button, BlockQuote, Main} from './styledComponents'
+import { Button, Main } from './styledComponents';
+import ShowQuote from './ShowQuote';
 
 interface QuoteData {
 	content: string;
 	author: string;
-};
+}
 
 const Quote: React.FC = () => {
 	const [ quote, setQuote ] = useState<QuoteData | null>(null);
@@ -40,13 +41,11 @@ const Quote: React.FC = () => {
 	return (
 		<div className="Quote">
 			<Main className="Quote-Main">
-				{loading 
-				? <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
-				:	<>
-						<BlockQuote>"{quote?.content}"</BlockQuote>
-						<cite>{quote?.author}</cite> 
-					</>
-				}
+				{loading ? (
+					<Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
+				) : (
+					<ShowQuote quote={quote} />
+				)}
 			</Main>
 
 			<Button onClick={getNewQuote}>Gimme Quote</Button>
