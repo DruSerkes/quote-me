@@ -4,24 +4,21 @@ import axios from 'axios';
 const Quote = () => {
 	const [ quote, setQuote ] = useState(null);
 	const [ loading, setLoading ] = useState(true);
+	console.log('quote is ', quote);
 
 	useEffect(
 		() => {
 			const getQuote = async () => {
 				try {
 					setLoading(true);
-					const params = new URLSearchParams({
-						lang   : 'en',
-						format : 'json',
-						method : 'getQuote'
-					});
-					const res = console.log('res == ', res);
-					const data = res.data;
-					console.log('data ==', data);
-					setQuote(data);
+					const res = await window.fetch('https://api.quotable.io/random');
+					const { content, author } = await res.json();
+					setQuote({ content, author });
 				} catch (e) {
 					console.log(e);
-					setQuote();
+					setQuote(null);
+				} finally {
+					setLoading(false);
 				}
 			};
 			if (!quote) getQuote();
@@ -29,12 +26,18 @@ const Quote = () => {
 		[ quote ]
 	);
 
-	if (loading) return <h1>Loading - add a spinner here</h1>;
+	const getNewQuote = () => {
+		setQuote(null);
+		setLoading(true);
+	};
+
+	if (loading) return <h3>Loading - add a spinner here</h3>;
 
 	return (
 		<main className="Quote">
-			<h1>{quote}</h1>
-			<button onClick={() => setQuote(null)}>Gimme Quote</button>
+			<blockquote>"{quote.content}"</blockquote>
+			<cite>{quote.author}</cite>
+			<button onClick={getNewQuote}>Gimme Quote</button>
 		</main>
 	);
 };
