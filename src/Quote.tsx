@@ -5,7 +5,7 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 interface QuoteData {
 	content: string;
 	author: string;
-}
+};
 
 const Quote: React.FC = () => {
 	const [ quote, setQuote ] = useState<QuoteData | null>(null);
@@ -16,7 +16,7 @@ const Quote: React.FC = () => {
 			const getQuote = async () => {
 				try {
 					setLoading(true);
-					const res = await window.fetch('https://api.quotable.io/random');
+					const res = await fetch('https://api.quotable.io/random');
 					const { content, author } = await res.json();
 					setQuote({ content, author });
 				} catch (e) {
@@ -36,14 +36,7 @@ const Quote: React.FC = () => {
 		setLoading(true);
 	};
 
-	if (loading) {
-		return (
-			<h3>
-				Loading
-				<Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
-			</h3>
-		);
-	}
+	if (loading) return <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
 
 	return (
 		<main className="Quote">
