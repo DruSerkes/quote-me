@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
-export default (Quote = () => {
+const Quote = () => {
 	const [ quote, setQuote ] = useState(null);
 	const [ loading, setLoading ] = useState(true);
 
 	useEffect(
 		() => {
 			const getQuote = async () => {
-				setLoading(true);
-				const params = new URLSearchParams({
-					lang   : 'en',
-					format : 'json',
-					method : 'getQuote'
-				});
-				const res = await window.fetch('https://forismatic.com/en/api/' + params.toString());
-				console.log('res == ', res);
-				const data = res.json();
-				console.log('data ==', data);
-				setQuote(data);
-				setLoading(false);
+				try {
+					setLoading(true);
+					const params = new URLSearchParams({
+						lang   : 'en',
+						format : 'json',
+						method : 'getQuote'
+					});
+					const res = console.log('res == ', res);
+					const data = res.data;
+					console.log('data ==', data);
+					setQuote(data);
+				} catch (e) {
+					console.log(e);
+					setQuote();
+				}
 			};
 			if (!quote) getQuote();
 		},
@@ -33,4 +37,6 @@ export default (Quote = () => {
 			<button onClick={() => setQuote(null)}>Gimme Quote</button>
 		</main>
 	);
-});
+};
+
+export default Quote;
