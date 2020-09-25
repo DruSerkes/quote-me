@@ -38,6 +38,7 @@ export const Button = styled.button`
 		border-top-color: white;
 		border-bottom-color: white;
 		background-color: black;
+		border-radius: 0;
 		transition: all 0.5s;
 		color: white;
 		transform: scale(1.1, 1);
