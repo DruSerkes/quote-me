@@ -45,6 +45,7 @@ export const Button = styled.button`
 `;
 
 export const H1 = styled.h1`
-	padding: 0.8rem auto 0;
+	margin: 0.8rem auto 0;
 	color: white;
+	font-size: 3rem;
 `;
