@@ -51,6 +51,16 @@ const Quote: React.FC = () => {
 				)}
 			</Main>
 			<section className="Quote-Buttons">
+				<Button>
+					<a
+						id="tweet-quote"
+						title="tweet this code"
+						href={`https://twitter.com/intent/tweet?text=${text.current}`}
+						target="_blank"
+						rel="noopener noreferrer">
+						Tweet
+					</a>
+				</Button>
 				<Button onClick={() => copyText(text.current)}>Copy</Button>
 				<Button onClick={getNewQuote}>New Quote</Button>
 			</section>
