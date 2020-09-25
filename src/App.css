@@ -20,3 +20,10 @@ html {
 .Quote-Main {
 	width: 100%;
 }
+
+.Quote-Buttons {
+	margin: 0.5rem auto;
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}

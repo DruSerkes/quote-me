@@ -16,9 +16,9 @@ export const BlockQuote = styled.blockquote`
 `;
 
 export const Button = styled.button`
-	display: block;
+	display: inline-block;
 	cursor: pointer;
-	margin: 1rem 0 0 auto;
+	margin: 0.3rem 0.4rem;
 	padding: 0.2rem 0.7rem;
 	background-color: black;
 	border-color: white;

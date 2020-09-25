@@ -50,8 +50,10 @@ const Quote: React.FC = () => {
 					<ShowQuote quote={quote} />
 				)}
 			</Main>
-			<Button onClick={() => copyText(text.current)}>Copy</Button>
-			<Button onClick={getNewQuote}>Gimme Quote</Button>
+			<section className="Quote-Buttons">
+				<Button onClick={() => copyText(text.current)}>Copy</Button>
+				<Button onClick={getNewQuote}>Gimme Quote</Button>
+			</section>
 		</div>
 	);
 };
