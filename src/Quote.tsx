@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Loader from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import { Button, Main } from './styledComponents';
 import ShowQuote from './ShowQuote';
+import { copyText } from './helpers';
 
 interface QuoteData {
 	content: string;
@@ -12,6 +13,7 @@ interface QuoteData {
 const Quote: React.FC = () => {
 	const [ quote, setQuote ] = useState<QuoteData | null>(null);
 	const [ loading, setLoading ] = useState(true);
+	const text = useRef('');
 
 	useEffect(
 		() => {
@@ -21,6 +23,7 @@ const Quote: React.FC = () => {
 					const res = await fetch('https://api.quotable.io/random');
 					const { content, author } = await res.json();
 					setQuote({ content, author });
+					text.current = `"${content}" -${author}`;
 				} catch (e) {
 					console.log(e);
 					setQuote(null);
@@ -47,7 +50,7 @@ const Quote: React.FC = () => {
 					<ShowQuote quote={quote} />
 				)}
 			</Main>
-
+			<Button onClick={() => copyText(text.current)}>Copy</Button>
 			<Button onClick={getNewQuote}>Gimme Quote</Button>
 		</div>
 	);
