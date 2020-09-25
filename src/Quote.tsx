@@ -2,8 +2,13 @@ import React, { useState, useEffect } from 'react';
 import Loader from 'react-loader-spinner';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
-const Quote = () => {
-	const [ quote, setQuote ] = useState(null);
+interface QuoteData {
+	content: string;
+	author: string;
+}
+
+const Quote: React.FC = () => {
+	const [ quote, setQuote ] = useState<QuoteData | null>(null);
 	const [ loading, setLoading ] = useState(true);
 
 	useEffect(
@@ -42,8 +47,8 @@ const Quote = () => {
 
 	return (
 		<main className="Quote">
-			<blockquote>"{quote.content}"</blockquote>
-			<cite>{quote.author}</cite>
+			<blockquote>"{quote?.content}"</blockquote>
+			<cite>{quote?.author}</cite>
 			<button onClick={getNewQuote}>Gimme Quote</button>
 		</main>
 	);
