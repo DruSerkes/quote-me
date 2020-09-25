@@ -4,6 +4,8 @@ import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import { Button, Main } from './styledComponents';
 import ShowQuote from './ShowQuote';
 import { copyText } from './helpers';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 interface QuoteData {
 	content: string;
@@ -59,7 +61,7 @@ const Quote: React.FC = () => {
 						target="_blank"
 						rel="noopener noreferrer"
 						className="Tweet-Button">
-						Tweet
+						<FontAwesomeIcon icon={faTwitter} />
 					</a>
 				</Button>
 				<Button onClick={() => copyText(text.current)}>Copy</Button>

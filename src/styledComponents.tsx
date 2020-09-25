@@ -39,9 +39,9 @@ export const Button = styled.button`
 		border-bottom-color: white;
 		background-color: black;
 		border-radius: 0;
-		transition: all 0.5s;
+		transition: all 0.8s;
 		color: white;
-		transform: scale(1.1, 1);
+		transform: scale(1.05, 1);
 	}
 `;
 
