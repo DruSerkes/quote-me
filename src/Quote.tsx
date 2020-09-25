@@ -52,7 +52,7 @@ const Quote: React.FC = () => {
 			</Main>
 			<section className="Quote-Buttons">
 				<Button onClick={() => copyText(text.current)}>Copy</Button>
-				<Button onClick={getNewQuote}>Gimme Quote</Button>
+				<Button onClick={getNewQuote}>New Quote</Button>
 			</section>
 		</div>
 	);
