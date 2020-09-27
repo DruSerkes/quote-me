@@ -5,7 +5,7 @@
 **Get quotes, tweet them out, go nuts**
 
 ## Features 
-View excellent quotes - get a new one if you so desire - then copy and paste it somewhere, or tweet it out!   
+View excellent quotes - get a new one if you so desire - then copy and paste it somewhere or tweet it out to the world!   
 
 ## API 
 This project uses the [Quotable API](https://api.quotable.io/) to generate random quotes
