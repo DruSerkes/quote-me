@@ -5,6 +5,9 @@ html {
 	min-height: 100vh;
 	font-size: calc(10px + 2vmin);
 	background-color: black;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 .Quote {
@@ -35,16 +38,16 @@ html {
 }
 
 .Footer {
-	position: absolute;
+	/* position: absolute; */
 	width: 100%;
-	bottom: 0px;
+	/* bottom: 0px; */
 	color: white;
 	font-size: 0.6rem;
 	border-top: 1px solid white;
 }
 
 .Footer p {
-	margin: 0.3rem;
+	padding-bottom: 0.3rem;
 }
 
 .Footer a {
