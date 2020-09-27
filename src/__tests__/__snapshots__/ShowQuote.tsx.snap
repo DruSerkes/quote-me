@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ShowQuote tests should match snapshot 1`] = `
+<DocumentFragment>
+  <blockquote
+    class="sc-gtssRu ffDGEY"
+  >
+    "testing"
+  </blockquote>
+  <cite>
+    the tester
+  </cite>
+</DocumentFragment>
+`;
