@@ -160,6 +160,7 @@ exports[`App tests should match snapshot 1`] = `
     >
       <p>
         <a
+          data-testid="footer"
           href="https://github.com/druserkes"
           rel="noopener noreferrer"
           target="_blank"
