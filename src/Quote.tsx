@@ -15,6 +15,7 @@ interface QuoteData {
 const Quote: React.FC = () => {
 	const [ quote, setQuote ] = useState<QuoteData | null>(null);
 	const [ loading, setLoading ] = useState(true);
+	const [ toolTip, setToolTip ] = useState('Copy');
 	const text = useRef('');
 
 	useEffect(
@@ -43,6 +44,12 @@ const Quote: React.FC = () => {
 		setLoading(true);
 	};
 
+	const handleCopy = () => {
+		copyText(text.current);
+		setToolTip('Copied!');
+		setTimeout(() => setToolTip('Copy'), 1500);
+	};
+
 	return (
 		<div className="Quote">
 			<Main className="Quote-Main">
@@ -64,7 +71,7 @@ const Quote: React.FC = () => {
 						<FontAwesomeIcon icon={faTwitter} />
 					</a>
 				</Button>
-				<Button onClick={() => copyText(text.current)}>Copy</Button>
+				<Button onClick={handleCopy}>{toolTip}</Button>
 				<Button onClick={getNewQuote}>New Quote</Button>
 			</section>
 		</div>
