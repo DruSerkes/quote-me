@@ -1,6 +1,6 @@
 import React from 'react';
 import Quote from '../Quote';
-import { render, waitForDomChange } from '@testing-library/react';
+import { render, waitForDomChange, fireEvent } from '@testing-library/react';
 import { enableFetchMocks } from 'jest-fetch-mock';
 enableFetchMocks();
 
@@ -19,10 +19,11 @@ describe('Quote tests', () => {
 		expect(getByText('Copy')).toBeInTheDocument();
 		expect(getByText('New Quote')).toBeInTheDocument();
 		expect(fetch).toHaveBeenCalled();
+		expect(fetch).toHaveBeenCalledTimes(2);
 		expect(getByText('"testing123"')).toBeInTheDocument();
 		expect(getByText('yer boi')).toBeInTheDocument();
 
-		// fireEvent.click(getByText('New Quote'));
-		// expect(fetch).toHaveBeenCalledTimes(2);
+		fireEvent.click(getByText('New Quote'));
+		expect(fetch).toHaveBeenCalledTimes(3);
 	});
 });

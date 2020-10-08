@@ -6,7 +6,7 @@ exports[`App tests should match snapshot 1`] = `
     class="App"
   >
     <h1
-      class="sc-hKFyIo edOHsa"
+      class="sc-hKFyIo kDAXxg"
     >
       Quote Me
     </h1>
@@ -116,7 +116,7 @@ exports[`App tests should match snapshot 1`] = `
         class="Quote-Buttons"
       >
         <button
-          class="sc-dlnjPT bVPBVV"
+          class="sc-dlnjPT SNsUt"
         >
           <a
             class="Tweet-Button"
@@ -144,12 +144,12 @@ exports[`App tests should match snapshot 1`] = `
           </a>
         </button>
         <button
-          class="sc-dlnjPT bVPBVV"
+          class="sc-dlnjPT SNsUt"
         >
           Copy
         </button>
         <button
-          class="sc-dlnjPT bVPBVV"
+          class="sc-dlnjPT SNsUt"
         >
           New Quote
         </button>
