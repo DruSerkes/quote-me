@@ -1,4 +1,4 @@
-# Gimme-Quote
+# Quote Me
 
 [Check it out!](https://druserkes.github.io/quote-me/)
 
