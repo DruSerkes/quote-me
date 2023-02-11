@@ -28,21 +28,6 @@ export const Button = styled.button`
 	border-radius: 4px;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 	box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
-	&:hover {
-		border-left: none;
-		border-right: none;
-		border-top-width: 2px;
-		border-bottom-width: 2px;
-		border-top-style: solid;
-		border-bottom-style: solid;
-		border-top-color: white;
-		border-bottom-color: white;
-		background-color: black;
-		border-radius: 0;
-		transition: all 0.8s;
-		color: white;
-		transform: scale(1.05, 1);
-	}
 `;
 
 export const H1 = styled.h1`
