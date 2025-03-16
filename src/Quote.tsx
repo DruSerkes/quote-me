@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
-import Loader from 'react-loader-spinner';
-import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import { Button, Main } from './styledComponents';
-import ShowQuote from './ShowQuote';
-import { copyText } from './helpers';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import React, { useState, useEffect, useRef } from "react";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { Button, Main } from "./styledComponents";
+import ShowQuote from "./ShowQuote";
+import { copyText } from "./helpers";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
+
+const API_URL = "http://api.quotable.io/quotes/random";
 
 interface QuoteData {
   content: string;
@@ -15,15 +17,15 @@ interface QuoteData {
 const Quote: React.FC = () => {
   const [quote, setQuote] = useState<QuoteData | null>(null);
   const [loading, setLoading] = useState(true);
-  const [toolTip, setToolTip] = useState('Copy');
-  const text = useRef('');
+  const [toolTip, setToolTip] = useState("Copy");
+  const text = useRef("");
 
   useEffect(() => {
     const getQuote = async () => {
       try {
         setLoading(true);
-        const res = await fetch('https://api.quotable.io/random');
-        const { content, author } = await res.json();
+        const res = await fetch(API_URL);
+        const { content, author } = (await res.json())[0];
         setQuote({ content, author });
         text.current = `"${content}" -${author}`;
       } catch (e) {
@@ -43,16 +45,18 @@ const Quote: React.FC = () => {
 
   const handleCopy = () => {
     copyText(text.current);
-    setToolTip('Copied!');
-    setTimeout(() => setToolTip('Copy'), 1500);
+    setToolTip("Copied!");
+    setTimeout(() => setToolTip("Copy"), 1500);
   };
 
   return (
     <div className="Quote">
       <Main className="Quote-Main">
-        {loading
-          ? <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
-          : <ShowQuote quote={quote} />}
+        {loading ? (
+          <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
+        ) : (
+          <ShowQuote quote={quote} />
+        )}
       </Main>
       <section className="Quote-Buttons">
         <Button>
@@ -62,7 +66,8 @@ const Quote: React.FC = () => {
             href={`https://twitter.com/intent/tweet?text=${text.current}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="Tweet-Button">
+            className="Tweet-Button"
+          >
             <FontAwesomeIcon icon={faTwitter} />
           </a>
         </Button>
